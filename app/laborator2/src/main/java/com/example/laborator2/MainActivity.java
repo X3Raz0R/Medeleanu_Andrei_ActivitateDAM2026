@@ -26,44 +26,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e("Seminar","onstart");
-
-
+        Log.e("Seminar", "onStart - Error log");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.e("Seminar","onrestart");
-
+        Log.w("Seminar", "onRestart - Warning log");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("Seminar","onresume");
-
+        Log.i("Seminar", "onResume - Info log");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e("Seminar","onpoz");
-
+        Log.d("Seminar", "onPause - Debug log");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.e("Seminar","dontstop");
-
+        Log.v("Seminar", "onStop - Verbose log");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e("Seminar","ondestryo");
-
+        Log.e("Seminar", "onDestroy - Error log");
     }
-
 }
