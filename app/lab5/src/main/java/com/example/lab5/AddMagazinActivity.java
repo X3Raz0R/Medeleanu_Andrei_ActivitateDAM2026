@@ -1,5 +1,6 @@
 package com.example.lab5;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -26,6 +27,8 @@ public class AddMagazinActivity extends AppCompatActivity {
         return R.layout.activity_add_magazin;
     }
 
+    // Cerinta laboratorului impune folosirea view-ului Switch
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

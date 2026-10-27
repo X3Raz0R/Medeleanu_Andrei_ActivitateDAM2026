@@ -24,6 +24,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".AddMagazinAIActivity"
+            android:theme="@style/Theme.Sem2.AI"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
