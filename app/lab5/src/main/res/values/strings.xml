@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">lab5</string>
+
+    <!-- MainActivity -->
+    <string name="main_titlu">Aplicație Magazin (Lab 5)</string>
+    <string name="btn_adauga_magazin">Adaugă Magazin</string>
+    <string name="btn_adauga_magazin_ai">Adaugă Magazin (design AI)</string>
+    <string name="niciun_magazin">Niciun magazin adăugat.</string>
+    <string name="magazin_adaugat">Magazin adăugat cu succes!</string>
+    <string name="magazin_info">Magazin: %1$s\nAdresă: %2$s\nTip: %3$s\nCategorie: %4$s\nRating: %5$.1f\nLivrare: %6$s\nWeekend: %7$s</string>
+    <string name="da">Da</string>
+    <string name="nu">Nu</string>
+
+    <!-- AddMagazinActivity -->
+    <string name="adaugare_titlu">Adăugare Magazin</string>
+    <string name="hint_nume">Nume magazin</string>
+    <string name="hint_adresa">Adresă magazin</string>
+    <string name="label_tip">Tip magazin:</string>
+    <string name="tip_supermarket">Supermarket</string>
+    <string name="tip_boutique">Boutique</string>
+    <string name="label_categorie">Categorie:</string>
+    <string name="label_rating">Rating:</string>
+    <string name="livrare_domiciliu">Livrare la domiciliu</string>
+    <string name="deschis_weekend">Deschis în weekend</string>
+    <string name="btn_salveaza">Salvează Magazin</string>
+    <string name="campuri_obligatorii">Completați toate câmpurile obligatorii!</string>
+
+    <string-array name="categorii">
+        <item>Alimentar</item>
+        <item>Haine</item>
+        <item>Electronice</item>
+        <item>Cosmetice</item>
+        <item>Altele</item>
+    </string-array>
+
+    <!-- AddMagazinAIActivity -->
+    <string name="ai_titlu">🛍️ Magazin nou</string>
+    <string name="ai_subtitlu">Completează detaliile magazinului</string>
+    <string name="ai_informatii_generale">Informații generale</string>
+    <string name="ai_tip">Tip magazin</string>
+    <string name="ai_categorie">Categorie</string>
+    <string name="ai_evaluare">Evaluare</string>
+    <string name="ai_livrare">🚚 Livrare la domiciliu</string>
+    <string name="ai_weekend">📅 Deschis în weekend</string>
 </resources>

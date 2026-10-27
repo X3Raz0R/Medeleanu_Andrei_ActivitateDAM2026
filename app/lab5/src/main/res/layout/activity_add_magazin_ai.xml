@@ -34,7 +34,7 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🛍️ Magazin nou"
+                    android:text="@string/ai_titlu"
                     android:textAppearance="?attr/textAppearanceHeadlineMedium"
                     android:textColor="?attr/colorOnPrimary"
                     android:textStyle="bold" />
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:alpha="0.85"
-                    android:text="Completează detaliile magazinului"
+                    android:text="@string/ai_subtitlu"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="?attr/colorOnPrimary" />
             </LinearLayout>
@@ -67,7 +67,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Informații generale"
+                    android:text="@string/ai_informatii_generale"
                     android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="?attr/colorPrimary" />
 
@@ -76,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Nume magazin"
+                    android:hint="@string/hint_nume"
                     app:startIconDrawable="@android:drawable/ic_menu_edit">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Adresă magazin"
+                    android:hint="@string/hint_adresa"
                     app:startIconDrawable="@android:drawable/ic_dialog_map">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -120,7 +120,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tip magazin"
+                    android:text="@string/ai_tip"
                     android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="?attr/colorPrimary" />
 
@@ -137,21 +137,21 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="true"
-                        android:text="Supermarket" />
+                        android:text="@string/tip_supermarket" />
 
                     <RadioButton
                         android:id="@+id/rbBoutique"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Boutique" />
+                        android:text="@string/tip_boutique" />
                 </RadioGroup>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Categorie"
+                    android:text="@string/ai_categorie"
                     android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="?attr/colorPrimary" />
 
@@ -181,7 +181,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Evaluare"
+                    android:text="@string/ai_evaluare"
                     android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="?attr/colorPrimary" />
 
@@ -201,13 +201,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:minHeight="48dp"
-                    android:text="🚚  Livrare la domiciliu" />
+                    android:text="@string/ai_livrare" />
 
                 <CheckBox
                     android:id="@+id/cbWeekend"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📅  Deschis în weekend" />
+                    android:text="@string/ai_weekend" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -216,7 +216,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="24dp"
-            android:text="Salvează Magazin"
+            android:text="@string/btn_salveaza"
             android:textSize="16sp"
             app:cornerRadius="32dp" />
 

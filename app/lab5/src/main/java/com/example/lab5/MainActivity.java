@@ -40,16 +40,17 @@ public class MainActivity extends AppCompatActivity {
                         Intent data = result.getData();
                         Magazin magazin = (Magazin) data.getSerializableExtra("MAGAZIN_EXTRA");
                         if (magazin != null) {
-                            String info = "Magazin: " + magazin.getNume() + "\n" +
-                                    "Adresă: " + magazin.getAdresa() + "\n" +
-                                    "Tip: " + magazin.getTip() + "\n" +
-                                    "Categorie: " + magazin.getCategorie() + "\n" +
-                                    "Rating: " + magazin.getRating() + "\n" +
-                                    "Livrare: " + (magazin.isLivrare() ? "Da" : "Nu") + "\n" +
-                                    "Weekend: " + (magazin.isDeschisWeekend() ? "Da" : "Nu");
+                            String info = getString(R.string.magazin_info,
+                                    magazin.getNume(),
+                                    magazin.getAdresa(),
+                                    magazin.getTip(),
+                                    magazin.getCategorie(),
+                                    magazin.getRating(),
+                                    getString(magazin.isLivrare() ? R.string.da : R.string.nu),
+                                    getString(magazin.isDeschisWeekend() ? R.string.da : R.string.nu));
 
                             tvResult.setText(info);
-                            Toast.makeText(this, "Magazin adăugat cu succes!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, R.string.magazin_adaugat, Toast.LENGTH_LONG).show();
                         }
                     }
                 }

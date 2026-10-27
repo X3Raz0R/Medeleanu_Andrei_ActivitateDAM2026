@@ -49,7 +49,7 @@ public class AddMagazinActivity extends AppCompatActivity {
         CheckBox cbWeekend = findViewById(R.id.cbWeekend);
         Button btnSalveaza = findViewById(R.id.btnSalveaza);
 
-        String[] categorii = {"Alimentar", "Haine", "Electronice", "Cosmetice", "Altele"};
+        String[] categorii = getResources().getStringArray(R.array.categorii);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categorii);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategorie.setAdapter(adapter);
@@ -59,13 +59,13 @@ public class AddMagazinActivity extends AppCompatActivity {
             String adresa = etAdresa.getText().toString().trim();
 
             if (nume.isEmpty() || adresa.isEmpty()) {
-                Toast.makeText(this, "Completați toate câmpurile obligatorii!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.campuri_obligatorii, Toast.LENGTH_SHORT).show();
                 return;
             }
 
             int selectedRbId = rgTip.getCheckedRadioButtonId();
             RadioButton rbSelected = findViewById(selectedRbId);
-            String tip = rbSelected != null ? rbSelected.getText().toString() : "Supermarket";
+            String tip = rbSelected != null ? rbSelected.getText().toString() : getString(R.string.tip_supermarket);
 
             String categorie = spinnerCategorie.getSelectedItem().toString();
             float rating = ratingBar.getRating();
