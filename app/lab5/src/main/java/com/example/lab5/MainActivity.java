@@ -14,7 +14,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    public static final String LISTA_MAGAZINE = "LISTA_MAGAZINE";
+
+    private final ArrayList<Magazin> listaMagazine = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
                         Intent data = result.getData();
                         Magazin magazin = (Magazin) data.getSerializableExtra("MAGAZIN_EXTRA");
                         if (magazin != null) {
+                            listaMagazine.add(magazin);
+
                             String info = getString(R.string.magazin_info,
                                     magazin.getNume(),
                                     magazin.getAdresa(),
@@ -48,9 +56,25 @@ public class MainActivity extends AppCompatActivity {
                                     magazin.getRating(),
                                     getString(magazin.isLivrare() ? R.string.da : R.string.nu),
                                     getString(magazin.isDeschisWeekend() ? R.string.da : R.string.nu));
-
                             tvResult.setText(info);
-                            Toast.makeText(this, R.string.magazin_adaugat, Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, getString(R.string.magazine_in_lista, listaMagazine.size()),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+
+        // Lista poate fi modificata (stergeri) in ListaMagazineActivity, asa ca o preluam inapoi
+        ActivityResultLauncher<Intent> listaLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        @SuppressWarnings("unchecked")
+                        ArrayList<Magazin> listaActualizata =
+                                (ArrayList<Magazin>) result.getData().getSerializableExtra(LISTA_MAGAZINE);
+                        if (listaActualizata != null) {
+                            listaMagazine.clear();
+                            listaMagazine.addAll(listaActualizata);
                         }
                     }
                 }
@@ -65,6 +89,13 @@ public class MainActivity extends AppCompatActivity {
         btnAddMagazinAI.setOnClickListener(v -> {
             Intent intent = new Intent(this, AddMagazinAIActivity.class);
             addMagazinLauncher.launch(intent);
+        });
+
+        Button btnVeziLista = findViewById(R.id.btnVeziLista);
+        btnVeziLista.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ListaMagazineActivity.class);
+            intent.putExtra(LISTA_MAGAZINE, listaMagazine);
+            listaLauncher.launch(intent);
         });
     }
 }

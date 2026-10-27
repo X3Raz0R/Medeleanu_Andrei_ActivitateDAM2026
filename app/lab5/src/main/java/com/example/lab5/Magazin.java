@@ -37,6 +37,15 @@ public class Magazin implements Serializable {
         return categorie;
     }
 
+    @Override
+    public String toString() {
+        return nume + " (" + tip + ", " + categorie + ")\n" +
+                "Adresă: " + adresa + "\n" +
+                "Rating: " + rating +
+                " | Livrare: " + (livrare ? "Da" : "Nu") +
+                " | Weekend: " + (deschisWeekend ? "Da" : "Nu");
+    }
+
     public float getRating() {
         return rating;
     }

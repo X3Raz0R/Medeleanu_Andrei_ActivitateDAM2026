@@ -40,6 +40,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAddMagazin" />
 
+    <Button
+        android:id="@+id/btnVeziLista"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/btn_vezi_lista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddMagazinAI" />
+
     <TextView
         android:id="@+id/tvResult"
         android:layout_width="0dp"
@@ -49,6 +59,6 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddMagazinAI" />
+        app:layout_constraintTop_toBottomOf="@+id/btnVeziLista" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
