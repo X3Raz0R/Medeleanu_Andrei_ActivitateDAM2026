@@ -26,3 +26,4 @@ rootProject.name = "sem2"
 include(":app")
 include(":app:laborator2")
 include(":app:lab5")
+include(":app:exercitiul-sase-sapte")
