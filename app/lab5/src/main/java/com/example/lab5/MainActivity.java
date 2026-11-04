@@ -2,15 +2,19 @@ package com.example.lab5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
@@ -29,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         int padding = findViewById(R.id.main).getPaddingLeft();
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left + padding, systemBars.top + padding,
-                    systemBars.right + padding, systemBars.bottom + padding);
-            return insets;
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), new OnApplyWindowInsetsListener() {
+            @Override
+            public WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left + padding, systemBars.top + padding,
+                        systemBars.right + padding, systemBars.bottom + padding);
+                return insets;
+            }
         });
 
         Button btnAddMagazin = findViewById(R.id.btnAddMagazin);
@@ -41,61 +48,75 @@ public class MainActivity extends AppCompatActivity {
 
         ActivityResultLauncher<Intent> addMagazinLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-                        Intent data = result.getData();
-                        Magazin magazin = (Magazin) data.getSerializableExtra("MAGAZIN_EXTRA");
-                        if (magazin != null) {
-                            listaMagazine.add(magazin);
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                            Intent data = result.getData();
+                            Magazin magazin = data.getParcelableExtra("MAGAZIN_EXTRA");
+                            if (magazin != null) {
+                                listaMagazine.add(magazin);
 
-                            String info = getString(R.string.magazin_info,
-                                    magazin.getNume(),
-                                    magazin.getAdresa(),
-                                    magazin.getTip(),
-                                    magazin.getCategorie(),
-                                    magazin.getRating(),
-                                    getString(magazin.isLivrare() ? R.string.da : R.string.nu),
-                                    getString(magazin.isDeschisWeekend() ? R.string.da : R.string.nu));
-                            tvResult.setText(info);
-                            Toast.makeText(this, getString(R.string.magazine_in_lista, listaMagazine.size()),
-                                    Toast.LENGTH_SHORT).show();
+                                String info = getString(R.string.magazin_info,
+                                        magazin.getNume(),
+                                        magazin.getAdresa(),
+                                        magazin.getTip(),
+                                        magazin.getCategorie(),
+                                        magazin.getRating(),
+                                        getString(magazin.isLivrare() ? R.string.da : R.string.nu),
+                                        getString(magazin.isDeschisWeekend() ? R.string.da : R.string.nu));
+                                tvResult.setText(info);
+                                Toast.makeText(MainActivity.this,
+                                        getString(R.string.magazine_in_lista, listaMagazine.size()),
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 }
         );
 
-        // Lista poate fi modificata (stergeri) in ListaMagazineActivity, asa ca o preluam inapoi
         ActivityResultLauncher<Intent> listaLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-                        @SuppressWarnings("unchecked")
-                        ArrayList<Magazin> listaActualizata =
-                                (ArrayList<Magazin>) result.getData().getSerializableExtra(LISTA_MAGAZINE);
-                        if (listaActualizata != null) {
-                            listaMagazine.clear();
-                            listaMagazine.addAll(listaActualizata);
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                            ArrayList<Magazin> listaActualizata =
+                                    result.getData().getParcelableArrayListExtra(LISTA_MAGAZINE);
+                            if (listaActualizata != null) {
+                                listaMagazine.clear();
+                                listaMagazine.addAll(listaActualizata);
+                            }
                         }
                     }
                 }
         );
 
-        btnAddMagazin.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AddMagazinActivity.class);
-            addMagazinLauncher.launch(intent);
+        btnAddMagazin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddMagazinActivity.class);
+                addMagazinLauncher.launch(intent);
+            }
         });
 
         Button btnAddMagazinAI = findViewById(R.id.btnAddMagazinAI);
-        btnAddMagazinAI.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AddMagazinAIActivity.class);
-            addMagazinLauncher.launch(intent);
+        btnAddMagazinAI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddMagazinAIActivity.class);
+                addMagazinLauncher.launch(intent);
+            }
         });
 
         Button btnVeziLista = findViewById(R.id.btnVeziLista);
-        btnVeziLista.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ListaMagazineActivity.class);
-            intent.putExtra(LISTA_MAGAZINE, listaMagazine);
-            listaLauncher.launch(intent);
+        btnVeziLista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListaMagazineActivity.class);
+                intent.putParcelableArrayListExtra(LISTA_MAGAZINE, listaMagazine);
+                listaLauncher.launch(intent);
+            }
         });
     }
 }
