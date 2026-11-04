@@ -44,25 +44,27 @@ public class MagazinAdapter extends BaseAdapter {
             v = inflater.inflate(resursaLayout, parent, false);
         }
 
-        TextView tvNume = v.findViewById(R.id.tvNumeRand);
-        TextView tvRating = v.findViewById(R.id.tvRatingRand);
-        TextView tvTipCategorie = v.findViewById(R.id.tvTipCategorieRand);
-        TextView tvAdresa = v.findViewById(R.id.tvAdresaRand);
-        TextView tvDetalii = v.findViewById(R.id.tvDetaliiRand);
+        TextView nume = v.findViewById(R.id.nume);
+        TextView adresa = v.findViewById(R.id.adresa);
+        TextView tip = v.findViewById(R.id.tip);
+        TextView categorie = v.findViewById(R.id.categorie);
+        TextView rating = v.findViewById(R.id.rating);
+        TextView livrare = v.findViewById(R.id.livrare);
+        TextView deschisWeekend = v.findViewById(R.id.deschisWeekend);
 
         Magazin magazin = (Magazin) getItem(position);
 
         String da = ctx.getString(R.string.da);
         String nu = ctx.getString(R.string.nu);
 
-        tvNume.setText(magazin.getNume());
-        tvRating.setText(ctx.getString(R.string.rand_rating, magazin.getRating()));
-        tvTipCategorie.setText(ctx.getString(R.string.rand_tip_categorie,
-                magazin.getTip(), magazin.getCategorie()));
-        tvAdresa.setText(magazin.getAdresa());
-        tvDetalii.setText(ctx.getString(R.string.rand_detalii,
-                magazin.isLivrare() ? da : nu,
-                magazin.isDeschisWeekend() ? da : nu));
+
+        nume.setText(magazin.getNume());
+        adresa.setText(magazin.getAdresa());
+        tip.setText(magazin.getTip());
+        categorie.setText(magazin.getCategorie());
+        rating.setText(ctx.getString(R.string.rand_rating, magazin.getRating()));
+        livrare.setText(ctx.getString(R.string.rand_livrare, magazin.isLivrare() ? da : nu));
+        deschisWeekend.setText(ctx.getString(R.string.rand_weekend, magazin.isDeschisWeekend() ? da : nu));
 
         return v;
     }
