@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdaugaInregistrari">
+
+    <TextView
+        android:id="@+id/tv_adauga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Formular adauga excursie"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_destinatie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="destinationes"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Formular adauga excursie"
+        android:textSize="20sp" />
+
+    <SeekBar
+        android:id="@+id/sb_pret"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="50" />
+
+    <CheckBox
+        android:id="@+id/cb_bagaj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bagaj extra" />
+
+    <CheckBox
+        android:id="@+id/cb_pensionar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pensionar" />
+
+    <RadioGroup
+        android:id="@+id/rg_anotimp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_primavara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Primavara" />
+
+        <RadioButton
+            android:id="@+id/rb_vara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vara" />
+
+        <RadioButton
+            android:id="@+id/rb_toamna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toamna" />
+
+        <RadioButton
+            android:id="@+id/rb_iarna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iarna" />
+    </RadioGroup>
+
+    <RatingBar
+        android:id="@+id/rb_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5" />
+
+    <Spinner
+        android:id="@+id/sp_locatie"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:entries="@array/locatii" />
+
+    <Button
+        android:id="@+id/btn_salveaza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salveaza" />
+
+</LinearLayout>

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SIXSEVENNNNNNNNN</string>
+    <string name="titlu_lista">Listă înregistrări</string>
+    <string name="titlu_adauga">Adaugă înregistrare</string>
+
+    <string-array name="locatii">
+        <item>Romania</item>
+        <item>Grecia</item>
+        <item>Italia</item>
+        <item>Spania</item>
+        <item>Turcia</item>
+    </string-array>
 </resources>
