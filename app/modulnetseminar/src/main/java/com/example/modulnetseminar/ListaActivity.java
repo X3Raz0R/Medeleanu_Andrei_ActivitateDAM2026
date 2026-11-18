@@ -32,8 +32,8 @@ public class ListaActivity extends AppCompatActivity {
 
         List<String> linkuriImagini = new ArrayList<>();
         linkuriImagini.add("https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Dacia_Logan_III.jpg/500px-Dacia_Logan_III.jpg");
-        linkuriImagini.add("https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Dacia_Logan_2023_%28front%29.jpg/500px-Dacia_Logan_2023_%28front%29.jpg");
-        linkuriImagini.add("https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Dacia_Logan_MCV.jpg/500px-Dacia_Logan_MCV.jpg");
+        linkuriImagini.add("https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/2017_Porsche_911_GT3_3.jpg/500px-2017_Porsche_911_GT3_3.jpg");
+        linkuriImagini.add("https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Nissan_GT-R_GT3.jpg/500px-Nissan_GT-R_GT3.jpg");
         linkuriImagini.add("https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Ford_Mustang_GT_%2822738183992%29.jpg/500px-Ford_Mustang_GT_%2822738183992%29.jpg");
         linkuriImagini.add("https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg/500px-2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg");
 
@@ -71,14 +71,14 @@ public class ListaActivity extends AppCompatActivity {
                         masini = new ArrayList<>();
                         masini.add(new Masina("Dacia", "Logan III", 2021, imagini.get(0),
                                 "https://en.wikipedia.org/wiki/Dacia_Logan"));
-                        masini.add(new Masina("Dacia", "Logan", 2023, imagini.get(1),
-                                "https://en.wikipedia.org/wiki/Dacia_Logan"));
-                        masini.add(new Masina("Dacia", "Logan MCV", 2007, imagini.get(2),
-                                "https://en.wikipedia.org/wiki/Dacia_Logan"));
+                        masini.add(new Masina("Porsche", "911 GT3", 2017, imagini.get(1),
+                                "https://en.wikipedia.org/wiki/Porsche_911_GT3"));
+                        masini.add(new Masina("Nissan", "GT-R GT3", 2012, imagini.get(2),
+                                "https://en.wikipedia.org/wiki/Nissan_GT-R"));
                         masini.add(new Masina("Ford", "Mustang GT", 2015, imagini.get(3),
-                                "https://en.wikipedia.org/wiki/Ford_Mustang"));
+                                "https://en.wikipedia.org/wiki/Ford_Mustang_(sixth_generation)"));
                         masini.add(new Masina("Toyota", "Corolla Hybrid", 2019, imagini.get(4),
-                                "https://en.wikipedia.org/wiki/Toyota_Corolla"));
+                                "https://en.wikipedia.org/wiki/Toyota_Corolla_(E210)"));
 
                         ListView lvMasini = findViewById(R.id.lvMasini);
                         MasinaAdapter adapter = new MasinaAdapter(getApplicationContext(), R.layout.item_masina, masini);

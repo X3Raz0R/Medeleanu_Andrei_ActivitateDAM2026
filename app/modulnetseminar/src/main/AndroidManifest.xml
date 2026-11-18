@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListaActivity" />
+        <activity android:name=".webviewactivity" />
         <activity
             android:name=".activitatewebview"
             android:exported="false"
