@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".SecondActivity">
+
+    <EditText
+        android:id="@+id/etOras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduceti orasul"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnCauta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cauta cheia orasului" />
+
+    <TextView
+        android:id="@+id/tvCheie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cheie oras:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvTempmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="temperatura minima:"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvTempmax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="temperatura maxima:"
+        android:textSize="18sp" />
+
+</LinearLayout>
